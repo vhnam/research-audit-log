@@ -15,6 +15,7 @@ module.exports = {
       users.push({
         id: uuid(),
         name: faker.name.findName(),
+        username: faker.internet.userName(),
         password: bcrypt.hashSync('secret', salt)
       });
     }
