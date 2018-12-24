@@ -7,6 +7,7 @@ module.exports = {
     database: process.env.DB_DATABASE,
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
+    salt: process.env.DB_SALT,
 
     API_LIMIT: process.env.API_LIMIT,
     API_PORT: process.env.API_PORT,
