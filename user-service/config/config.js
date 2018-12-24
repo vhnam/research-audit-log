@@ -3,7 +3,6 @@ require('dotenv').config();
 const fs = require('fs');
 
 const privateKey = fs.readFileSync(`${__dirname}/keys/private.key`);
-const publicKey = fs.readFileSync(`${__dirname}/keys/public.key`);
 
 module.exports = {
   development: {
@@ -18,7 +17,6 @@ module.exports = {
     API_PORT: process.env.API_PORT,
     API_VERSION: process.env.API_VERSION,
 
-    JWT_PUBLIC_KEY: publicKey,
     JWT_PRIVATE_KEY: privateKey,
     JWT_ISSUER: process.env.JWT_ISSUER,
     JWT_SUBJECT: process.env.JWT_SUBJECT,
