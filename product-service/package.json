@@ -4,6 +4,7 @@
   "description": "A part of research audit log",
   "main": "server.js",
   "scripts": {
+    "dev": "NODE_ENV=development nodemon server.js --exec babel-node -e js",
     "seed": "node_modules/.bin/sequelize db:seed:all",
     "migrate": "node_modules/.bin/sequelize db:migrate"
   },
