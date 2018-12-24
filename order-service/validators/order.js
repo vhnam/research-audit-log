@@ -11,5 +11,8 @@ const validate = (req, res, next) => {
 };
 
 module.exports = {
-  createOrder: [[], validate]
+  createOrder: [[
+    header('authorization').not().isEmpty(),
+    body('products').not().isEmpty()
+  ], validate]
 };
