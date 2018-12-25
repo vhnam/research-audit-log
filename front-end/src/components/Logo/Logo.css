@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+
+.logo {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
