@@ -1,6 +1,7 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
-  const OrderItems = sequelize.define('OrderItems', {
+  const OrderItem = sequelize.define('OrderItem', {
     id: {
       type: DataTypes.UUID,
       primaryKey: true
@@ -11,5 +12,5 @@ module.exports = (sequelize, DataTypes) => {
     quantity: DataTypes.INTEGER
   });
 
-  return OrderItems;
+  return OrderItem;
 };

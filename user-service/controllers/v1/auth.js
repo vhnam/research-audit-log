@@ -15,7 +15,6 @@ module.exports = {
 
       res.status(200).json({ token });
     } catch (err) {
-      console.log(err.stack);
       res.status(400).json({ message: err.message });
     }
   },

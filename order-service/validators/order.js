@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator/check');
+const { validationResult, header, body } = require('express-validator/check');
 
 const validate = (req, res, next) => {
   const errors = validationResult(req);
@@ -11,8 +11,15 @@ const validate = (req, res, next) => {
 };
 
 module.exports = {
-  createOrder: [[
-    header('authorization').not().isEmpty(),
-    body('products').not().isEmpty()
-  ], validate]
+  createOrder: [
+    [
+      header('authorization')
+        .not()
+        .isEmpty(),
+      body('product')
+        .not()
+        .isEmpty()
+    ],
+    validate
+  ]
 };

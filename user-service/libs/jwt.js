@@ -5,7 +5,7 @@ const config = require('../config');
 module.exports = {
   sign: user => {
     const payload = {
-      uuid: user.uuid,
+      id: user.id,
       name: user.name,
       username: user.username
     };
