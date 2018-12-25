@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import style from './App.css';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
+
+import './App.css';
+
+import MainLayout from './layouts/main';
 
 class App extends Component {
   render() {
+    const { store } = this.props;
+
     return (
-      <div className={style.wrapper}>
-        <header className={style.header}>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className={style.link}
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <MainLayout />
+      </Provider>
     );
   }
 }
+
+App.propTypes = {
+  store: PropTypes.object.isRequired,
+};
 
 export default App;
