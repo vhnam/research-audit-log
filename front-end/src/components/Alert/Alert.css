@@ -1,0 +1,20 @@
+.wrapper {
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #ffd2d2;
+}
+
+.warning {
+  color: #ffc107;
+  background-color: #feefb3;
+}
+
+.success {
+  color: #28a745;
+  background-color: #dff2bf;
+}

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import style from './Button.css';
 
-const classnames = require('classnames/bind');
-
-const cx = classnames.bind(style);
-
 class Button extends Component {
   render() {
-    const { children, onlClick, style, type } = this.props;
+    const { children, onClick, styles, type, size } = this.props;
 
     return (
-      <button type={type} className={cx('wrapper', style)} onClick={onlClick}>
+      <button
+        type={type}
+        className={classnames(style.wrapper, style[styles], style[size])}
+        onClick={onClick}
+      >
         {children}
       </button>
     );
@@ -22,8 +23,9 @@ class Button extends Component {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
-  style: PropTypes.string,
+  styles: PropTypes.string,
   type: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default Button;
