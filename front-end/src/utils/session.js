@@ -9,3 +9,7 @@ export const getSession = () => {
 export const setSession = user => {
   window.localStorage.setItem('session', JSON.stringify(user));
 };
+
+export const clearSession = () => {
+  window.localStorage.clear();
+};

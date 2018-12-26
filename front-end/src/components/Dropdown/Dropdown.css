@@ -1,0 +1,29 @@
+.wrapper {
+  position: relative;
+  color: #fff;
+}
+
+.menu {
+  position: absolute;
+  top: 2.5rem;
+  right: -1rem;
+  padding: .5rem 1rem;
+  min-width: 10rem;
+  text-align: right;
+  background-color: #212121;
+}
+
+.link {
+  display: block;
+  margin: .5rem 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #fafafa;
+}
+
+.link:active {
+  color: #e0e0e0;
+}

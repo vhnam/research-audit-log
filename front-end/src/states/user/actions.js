@@ -12,6 +12,11 @@ const LOGIN__FAILED = err => ({
   payload: err,
 });
 
+const LOGOUT = () => ({
+  type: 'LOGOUT',
+  payload: null,
+})
+
 export const login = credentials => {
   return dispatch => {
     return axios
@@ -26,3 +31,9 @@ export const login = credentials => {
       });
   };
 };
+
+export const logout = () => {
+  return dispatch => {
+    dispatch(LOGOUT());
+  }
+}

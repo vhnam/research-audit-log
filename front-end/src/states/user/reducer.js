@@ -1,4 +1,4 @@
-import { getSession, setSession } from '../../utils/session';
+import { getSession, setSession, clearSession } from '../../utils/session';
 
 const initialState = {
   data: getSession(),
@@ -23,6 +23,12 @@ const reducer = (state = initialState, action) => {
           error: action.error,
         }
       );
+    case 'LOGOUT':
+      clearSession();
+
+      return {
+        data: {},
+      };
     default:
       return state;
   }
