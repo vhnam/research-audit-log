@@ -13,4 +13,11 @@ router.get(
   productController.getProducts
 );
 
+router.get(
+  '/products/:id',
+  authMiddleware.checkToken,
+  productValidator.getProduct,
+  productController.getProduct
+);
+
 module.exports = router;

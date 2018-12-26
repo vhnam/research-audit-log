@@ -5,13 +5,13 @@ import { ProductsContainer } from '../../containers';
 
 import style from './HomePage.css';
 
-import { getProducts } from '../../states/products/actions';
+import { getProducts, resetProducts } from '../../states/products/actions';
 
 class HomePage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.props.dispatch(getProducts(1));
+  componentDidMount() {
+    this.props.dispatch(resetProducts()).then(() => {
+      this.props.dispatch(getProducts(1));
+    });
   }
 
   render() {

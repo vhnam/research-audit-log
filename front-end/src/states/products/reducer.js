@@ -24,6 +24,12 @@ const reducer = (state = initialState, action) => {
           error: action.error,
         }
       );
+    case 'RESET':
+      return {
+        ...state,
+        data: [],
+        pagination: null,
+      };
     default:
       return state;
   }

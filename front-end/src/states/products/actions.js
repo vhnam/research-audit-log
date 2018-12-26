@@ -12,6 +12,17 @@ const PRODUCTS__FAILED = err => ({
   payload: err,
 });
 
+const RESET = () => ({
+  type: 'RESET',
+  payload: null,
+});
+
+export const resetProducts = () => dispatch => {
+  return new Promise((resolve) => {
+    resolve(dispatch(RESET()));
+  })
+}
+
 export const getProducts = page => {
   return dispatch => {
     return axios

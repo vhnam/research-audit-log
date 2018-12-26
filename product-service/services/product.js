@@ -34,5 +34,15 @@ module.exports = {
           reject(err);
         });
     });
+  },
+
+  getProduct: async id => {
+    const product = await Product.findOne({
+      where: {
+        id
+      }
+    });
+
+    return product;
   }
 };

@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from '../../utils/axios';
 
 const CONST = require('./constants');
 
@@ -12,17 +12,10 @@ const ORDER__FAILED = err => ({
   payload: err,
 });
 
-const LOGOUT = () => ({
-  type: 'LOGOUT',
-  payload: null,
-})
-
 export const addToOrder = credentials => {
   return dispatch => {
     return axios
-      .post(CONST.BASE_URL, {
-        params: credentials
-      })
+      .post(CONST.BASE_URL, credentials)
       .then(response => {
         dispatch(ORDER__SUCCESS(response));
       })
@@ -33,9 +26,3 @@ export const addToOrder = credentials => {
       });
   };
 };
-
-export const logout = () => {
-  return dispatch => {
-    dispatch(LOGOUT());
-  }
-}

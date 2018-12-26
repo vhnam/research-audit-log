@@ -33,13 +33,14 @@ class TextField extends Component {
     );
   }
 }
+
 TextField.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   index: PropTypes.number,
   onChange: PropTypes.func,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   type: PropTypes.string,
 };
 

@@ -1,0 +1,29 @@
+.text_semibold {
+  font-weight: 600;
+}
+
+.wrapper {
+  margin-top: 5rem;
+  margin-right: 5rem;
+  color: #fff;
+}
+
+.footer {
+  margin-top: 3rem;
+}
+
+.title {
+  color: #ff7f00;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.table td {
+  padding: .5rem 1.25rem;
+  border: .125rem solid #fff;
+}
+

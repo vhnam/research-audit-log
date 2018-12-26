@@ -20,12 +20,30 @@ class ProductsContainer extends Component {
     this.state = {
       isLoading: false,
       prevY: 0,
+      isFirst: true,
     };
-
-    this.fetchData();
   }
 
   componentDidMount() {
+    if (this.state.isFirst) {
+      this.handleInitialize();
+    }
+
+    this.handleScrolling();
+  }
+
+  handleInitialize = () => {
+    this.setState(
+      {
+        isFirst: false,
+      },
+      () => {
+        this.fetchData();
+      }
+    );
+  };
+
+  handleScrolling = () => {
     // Options
     let options = {
       root: null, // Page as root
@@ -41,7 +59,7 @@ class ProductsContainer extends Component {
 
     //Observ the `loadingRef`
     this.observer.observe(this.loadingRef);
-  }
+  };
 
   handleObserver(entities, observer) {
     const y = entities[0].boundingClientRect.y;
