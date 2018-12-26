@@ -23,7 +23,11 @@ module.exports = {
 
     const token = jwtLibrary.sign(loggedUser);
 
-    return token;
+    return {
+      id: loggedUser.id,
+      username: loggedUser.username,
+      accessToken: token
+    };
   },
 
   logout: async user => {}

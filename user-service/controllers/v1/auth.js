@@ -7,13 +7,13 @@ module.exports = {
         username: req.body.username,
         password: req.body.password
       };
-      const token = await authService.login(user);
+      const loggedUser = await authService.login(user);
 
-      if (!token) {
+      if (!loggedUser) {
         res.status(401).json({ message: 'Unauthorized' });
       }
 
-      res.status(200).json({ token });
+      res.status(200).json(loggedUser);
     } catch (err) {
       res.status(400).json({ message: err.message });
     }

@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import AuthenticatedLayout from './authentication';
@@ -11,33 +10,25 @@ const isAuthenticated = () => {
   return !!session.accessToken;
 };
 
-class PrivateRoute extends Component {
-  render() {
-    const UserComponent = this.props.component;
-
-    return (
-      <Route
-        {...this.props}
-        render={props =>
-          isAuthenticated() ? (
-            <AuthenticatedLayout>
-              <UserComponent {...props} />
-            </AuthenticatedLayout>
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/login',
-              }}
-            />
-          )
-        }
-      />
-    );
-  }
-}
-
-PrivateRoute.propTypes = {
-  component: PropTypes.func.isRequired,
+const PrivateRoute = ({ component: Component, layout: Layout, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        isAuthenticated() ? (
+          <AuthenticatedLayout>
+            <Component {...props} />
+          </AuthenticatedLayout>
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+            }}
+          />
+        )
+      }
+    />
+  );
 };
 
 export default PrivateRoute;

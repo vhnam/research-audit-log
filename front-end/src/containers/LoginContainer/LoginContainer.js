@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 import { Alert, Button, TextField } from '../../components';
 
@@ -20,7 +22,7 @@ class LoginContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const { history, user } = nextProps;
 
-    if (user.token) {
+    if (user.accessToken) {
       history.replace({
         pathname: '/',
       });
@@ -84,8 +86,11 @@ class LoginContainer extends Component {
   }
 }
 
-const connectToRedux = connect(state => ({
+const mapStateToProps = state => ({
   user: state.user.data,
-}));
+});
 
-export default connectToRedux(LoginContainer);
+export default compose(
+  withRouter,
+  connect(mapStateToProps)
+)(LoginContainer);

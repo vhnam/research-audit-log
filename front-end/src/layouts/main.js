@@ -16,7 +16,7 @@ class MainLayout extends Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path="/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />
 
           <PrivateRoute exact path="/" component={HomePage} />
         </Switch>
