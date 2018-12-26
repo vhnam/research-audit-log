@@ -1,4 +1,4 @@
-import axios from '../../utils/axios';
+import { createAxios } from '../../utils/axios';
 
 const CONST = require('./constants');
 
@@ -25,6 +25,8 @@ export const resetProducts = () => dispatch => {
 
 export const getProducts = page => {
   return dispatch => {
+    const axios = createAxios();
+
     return axios
       .get(CONST.BASE_URL, {
         params: {

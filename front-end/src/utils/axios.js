@@ -2,8 +2,16 @@ import axios from 'axios';
 
 import { getSession } from './session';
 
-export default axios.create({
-  headers: {
-    Authorization: getSession().accessToken,
-  },
-});
+let axiosInstance = axios.create();
+
+export const createAxios = () => {
+  axiosInstance = axios.create({
+    headers: {
+      Authorization: getSession().accessToken,
+    },
+  });
+
+  return axiosInstance;
+};
+
+export default axiosInstance;

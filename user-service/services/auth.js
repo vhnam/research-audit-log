@@ -26,6 +26,7 @@ module.exports = {
     return {
       id: loggedUser.id,
       username: loggedUser.username,
+      name: loggedUser.name,
       accessToken: token
     };
   },

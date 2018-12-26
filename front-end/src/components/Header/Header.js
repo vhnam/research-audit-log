@@ -28,7 +28,9 @@ class Header extends Component {
   };
 
   signOut = () => {
-    this.props.dispatch(logout());
+    this.props.dispatch(logout()).then(() => {
+      window.location.reload();
+    });
   };
 
   initMenu = () => {
@@ -48,13 +50,15 @@ class Header extends Component {
   };
 
   render() {
+    const { user } = this.props;
+
     return (
       <header className={style.wrapper}>
         <div className={style.container}>
           <Logo path="/">Front-End</Logo>
           <div>
             <Dropdown
-              text="Nam Vo"
+              text={user.name}
               items={this.menuItems}
               state={this.state.isOpenMenu}
               onClick={this.toggleMenu}
@@ -66,6 +70,8 @@ class Header extends Component {
   }
 }
 
-const connectToRedux = connect(state => ({}));
+const connectToRedux = connect(state => ({
+  user: state.user.data,
+}));
 
 export default connectToRedux(Header);
