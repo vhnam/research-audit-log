@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import style from './Dropdown.css';
@@ -28,5 +29,12 @@ class Dropdown extends Component {
     );
   }
 }
+
+Dropdown.propTypes = {
+  text: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
+  state: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default Dropdown;
