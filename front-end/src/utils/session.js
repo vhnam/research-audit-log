@@ -3,7 +3,7 @@ export const getSession = () => {
 
   if (!session) return {};
 
-  return JSON.stringify(session);
+  return JSON.parse(session);
 };
 
 export const setSession = user => {

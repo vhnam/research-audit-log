@@ -1,21 +1,26 @@
-import { getSession } from '../../utils/session';
+import { getSession, setSession } from '../../utils/session';
 
 const initialState = {
-  data: getSession()
+  data: getSession(),
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGIN__SUCCESS':
+      const { data } = action.payload;
+
+      setSession(data);
+
       return {
         ...state,
-        data: action.payload.data
+        data,
       };
     case 'LOGIN__FAILED':
-      return Object.assign({},
+      return Object.assign(
+        {},
         {
           ...state,
-          error: action.error
+          error: action.error,
         }
       );
     default:
