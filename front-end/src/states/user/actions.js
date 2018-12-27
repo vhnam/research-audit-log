@@ -15,12 +15,12 @@ const LOGIN__FAILED = err => ({
 const LOGOUT = () => ({
   type: 'LOGOUT',
   payload: null,
-})
+});
 
 export const login = credentials => {
   return dispatch => {
     return axios
-      .post(CONST.BASE_URL, credentials)
+      .post(`${CONST.BASE_URL}/login`, credentials)
       .then(response => {
         dispatch(LOGIN__SUCCESS(response));
       })
@@ -32,8 +32,15 @@ export const login = credentials => {
   };
 };
 
-export const logout = () => {
+export const logout = credentials => {
   return dispatch => {
-    dispatch(LOGOUT());
+    return axios
+      .post(`${CONST.BASE_URL}/logout`, credentials)
+      .then(() => {
+        dispatch(LOGOUT());
+      })
+      .catch(err => {
+        throw err;
+      });
   }
 }

@@ -28,7 +28,11 @@ class Header extends Component {
   };
 
   signOut = () => {
-    this.props.dispatch(logout()).then(() => {
+    const { user } = this.props;
+
+    this.props.dispatch(logout({
+      user: user.id
+    })).then(() => {
       window.location.reload();
     });
   };

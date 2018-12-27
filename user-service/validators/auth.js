@@ -22,5 +22,12 @@ module.exports = {
     ],
     validate
   ],
-  logout: [validate]
+  logout: [
+    [
+      body('user')
+        .not()
+        .isEmpty()
+    ],
+    validate
+  ]
 };
