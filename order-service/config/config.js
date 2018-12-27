@@ -21,6 +21,8 @@ module.exports = {
     JWT_SUBJECT: process.env.JWT_SUBJECT,
     JWT_AUDIENCE: process.env.JWT_AUDIENCE,
     JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN,
-    JWT_ALGORITHM: process.env.JWT_ALGORITHM
+    JWT_ALGORITHM: process.env.JWT_ALGORITHM,
+
+    KAFKA_SERVER: process.env.KAFKA_SERVER
   }
 };

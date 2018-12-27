@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-import productImage from '../../assets/img/product.png';
-
 import { Card } from '../../components';
+
+import ProductContainer from '../../containers/ProductContainer/ProductContainer';
+
+import productImage from '../../assets/img/product.png';
 
 import style from './ProductPage.css';
 
-import axios from '../../utils/axios';
-import ProductContainer from '../../containers/ProductContainer/ProductContainer';
+import { createAxios } from '../../utils/axios';
 
 class ProductPage extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class ProductPage extends Component {
 
   getProduct = () => {
     const { id } = this.props.match.params;
+    const axios = createAxios();
 
     axios
       .get(`http://localhost:3002/api/v1/products/${id}`)

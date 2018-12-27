@@ -1,4 +1,4 @@
-import axios from '../../utils/axios';
+import { createAxios } from '../../utils/axios';
 
 const CONST = require('./constants');
 
@@ -14,6 +14,8 @@ const ORDER__FAILED = err => ({
 
 export const addToOrder = credentials => {
   return dispatch => {
+    const axios = createAxios();
+
     return axios
       .post(CONST.BASE_URL, credentials)
       .then(response => {
