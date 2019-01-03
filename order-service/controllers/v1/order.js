@@ -43,5 +43,17 @@ module.exports = {
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
+  },
+
+  getOrder: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const order = await orderService.getOrder(id);
+
+      res.status(200).json(order);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
   }
 };

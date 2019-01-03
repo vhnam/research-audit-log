@@ -25,5 +25,15 @@ module.exports = {
     });
 
     return orderItem;
+  },
+
+  getOrder: async id => {
+    const order = await Order.findOne({
+      where: {
+        id
+      }
+    });
+
+    return order;
   }
 };

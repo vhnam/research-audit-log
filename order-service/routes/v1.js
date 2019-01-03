@@ -16,4 +16,11 @@ router.post(
   orderController.createOrder
 );
 
+router.get(
+  '/orders/:id',
+  authMiddleware.checkToken,
+  orderValidator.getOrder,
+  orderController.getOrder
+);
+
 module.exports = router;
